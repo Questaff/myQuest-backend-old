@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20200527151438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "quests", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.boolean "stored", default: false, null: false
+    t.boolean "quest_master_validation", default: false, null: false
+    t.boolean "quest_hunter_completion", default: false, null: false
+    t.bigint "quest_author_id", null: false
+    t.bigint "quest_hunter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "uuid", default: ""
+    t.index ["quest_author_id"], name: "index_quests_on_quest_author_id"
+    t.index ["quest_hunter_id"], name: "index_quests_on_quest_hunter_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "quests", "users", column: "quest_author_id"
+  add_foreign_key "quests", "users", column: "quest_hunter_id"
 end
