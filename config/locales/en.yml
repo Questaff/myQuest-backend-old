@@ -31,5 +31,5 @@
 
 en:
   api:
-    unfound: "Entity unfound"
+    unfound: "Entity not found"
     deleted: "Entity successfully deleted"
