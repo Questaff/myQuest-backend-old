@@ -19,11 +19,4 @@ class User < ApplicationRecord
   def generate_uuid
     self.uuid = SecureRandom.uuid
   end
-
-  def to_token_payload
-    {
-      sub: uuid,
-      email: email
-    }
-  end
 end

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include Knock::Authenticable
   before_action :set_user, only: [:show]
 
   # POST /users
