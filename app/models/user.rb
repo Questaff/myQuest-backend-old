@@ -19,4 +19,16 @@ class User < ApplicationRecord
   def generate_uuid
     self.uuid = SecureRandom.uuid
   end
+
+  def created_quests
+    Quest.where(quest_author: self)
+  end
+
+  def accepted_quests
+    Quest.where(quest_hunter: self)
+  end
+
+  def stored_quests
+    self.created_quests.where(stored: true)
+  end
 end
