@@ -1,9 +1,10 @@
 class QuestsController < ApplicationController
+  before_action :authenticate_user
   before_action :set_quest, only: [:show, :update, :destroy]
 
   # POST /quests
   def create
-    quest = Quest.new(quest_create_params)
+    quest = Quest.new(quest_create_params.merge(quest_author: current_user))
     if quest.save
       render(status: 200, json: quest)
     else
