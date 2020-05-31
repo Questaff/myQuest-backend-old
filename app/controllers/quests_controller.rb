@@ -38,6 +38,21 @@ class QuestsController < ApplicationController
     render(status: 200, json: {message: I18n.t("api.deleted")})
   end
 
+  # GET /quests/created_quests
+  def created_quests
+    render(status: 200, json: current_user.created_quests)
+  end
+
+  # GET /quests/accepted_quests
+  def accepted_quests
+    render(status: 200, json: current_user.accepted_quests)
+  end
+
+  # GET /quests/stored_quests
+  def stored_quests
+    render(status: 200, json: current_user.stored_quests)
+  end
+
   private
     def quest_params
       params.fetch(:quest, {}).permit(:uuid, :quest_author_id, :quest_hunter_id, :title, :description, :stored, :quest_master_validation, :quest_hunter_completion)
