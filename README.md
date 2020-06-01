@@ -1,13 +1,13 @@
 # myQuest-backend
 This is the Rails API backend for myQuest !
 
-##Project
+## Project
 This is an API only, access this project via this url : `http://localhost:3001`.
 
 This project is powered by docker and docker-compose, you'll run command into containers via `docker-compose exec/run <container name> command`
 For more informations about containers you should take a look to `docker-compose.yml`
 
-###Setup
+### Setup
 This setup guide assume you have [Docker](https://docs.docker.com/install/) and [Docker-compose](https://docs.docker.com/compose/install/) installed.
 
 1. Clone this repository and browse into it via your terminal.
@@ -17,7 +17,7 @@ This setup guide assume you have [Docker](https://docs.docker.com/install/) and 
 5. Run `docker-compose run --rm web rails db:create` to create the database.
 6. Run `docker-compose run --rm web rails db:migrate` to create tables from migration in the database.
 
-###Available Commands
+### Available Commands
 Run the project with `docker-compose up` will open every containers,
 
 Stop and remove container with `docker-compose down`,
