@@ -4,7 +4,8 @@ FactoryBot.define do
     email { Faker::Internet.email }
     first_name { Faker::Name.name }
     last_name { Faker::Name.name }
-    password_digest { 'password' }
-    phone_number { Faker::PhoneNumber }
+    password { 'password' }
+    password_confirmation { 'password' }
+    phone_number { Faker::Base.numerify('+337########') }
   end
 end
