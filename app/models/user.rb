@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :quests, foreign_key: :quest_author_id
-  has_many :quests, foreign_key: :quest_hunter_id
+  has_many :created_quests, foreign_key: :quest_author_id, class_name: :Quest
+  has_many :accepted_quests, foreign_key: :quest_hunter_id, class_name: :Quest
 
   before_validation :generate_uuid, on: :create
 
@@ -18,14 +18,6 @@ class User < ApplicationRecord
 
   def generate_uuid
     self.uuid = SecureRandom.uuid
-  end
-
-  def created_quests
-    Quest.where(quest_author: self)
-  end
-
-  def accepted_quests
-    Quest.where(quest_hunter: self)
   end
 
   def stored_quests
