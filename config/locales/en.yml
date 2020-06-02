@@ -33,3 +33,5 @@ en:
   api:
     unfound: "Entity not found"
     deleted: "Entity successfully deleted"
+    invalid_username: "Username format is invalid. Only uppercase characters, lowercase characters, digits and '_' are allowed."
+    invalid_password: "Password format is invalid. It need at least 1 lowercase character, 1 uppercase character, 1 digit and 1 special character."
