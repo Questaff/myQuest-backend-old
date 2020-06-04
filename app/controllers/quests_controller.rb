@@ -8,7 +8,7 @@ class QuestsController < ApplicationController
     if quest.save
       render(status: 200, json: quest)
     else
-      render(status: 400, json: quest.errors)
+      render(status: 422, json: quest.errors)
     end
   end
 
