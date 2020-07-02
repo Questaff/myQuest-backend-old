@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if user.save
       render(status: 200, json: user)
     else
-      render(status: 400, json: user.errors)
+      render(status: 422, json: user.errors)
     end
   end
 

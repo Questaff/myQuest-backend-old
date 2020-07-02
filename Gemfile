@@ -38,6 +38,16 @@ gem 'phonelib'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Use RSpec for tests
+  gem 'rspec-rails', '~> 4.0.0'
+  # use factory bot for fake user
+  gem 'factory_bot_rails'
+  # Use Faker for random variables generation
+  gem 'faker'
+  # Use database cleaner to work properly on test database
+  gem 'database_cleaner'
+  # Use shoulda matchers for validation in rspec tests
+  gem 'shoulda-matchers'
 end
 
 group :development do
