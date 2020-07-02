@@ -5,7 +5,7 @@ email, or any other method with the owners of this repository before making a ch
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
-##Main Process
+## Main Process
 
 1. Fork the repo and create your branch from `master`.
 2. If you've added code that should be tested, add tests.
