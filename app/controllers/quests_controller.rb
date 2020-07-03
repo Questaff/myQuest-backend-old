@@ -1,13 +1,14 @@
 class QuestsController < ApplicationController
+  before_action :authenticate_user
   before_action :set_quest, only: [:show, :update, :destroy]
 
   # POST /quests
   def create
-    quest = Quest.new(quest_create_params)
+    quest = Quest.new(quest_create_params.merge(quest_author: current_user))
     if quest.save
       render(status: 200, json: quest)
     else
-      render(status: 400, json: quest.errors)
+      render(status: 422, json: quest.errors)
     end
   end
 
@@ -35,6 +36,21 @@ class QuestsController < ApplicationController
   def destroy
     @quest.destroy
     render(status: 200, json: {message: I18n.t("api.deleted")})
+  end
+
+  # GET /quests/created_quests
+  def created_quests
+    render(status: 200, json: current_user.created_quests)
+  end
+
+  # GET /quests/accepted_quests
+  def accepted_quests
+    render(status: 200, json: current_user.accepted_quests)
+  end
+
+  # GET /quests/stored_quests
+  def stored_quests
+    render(status: 200, json: current_user.stored_quests)
   end
 
   private
