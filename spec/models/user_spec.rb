@@ -13,10 +13,10 @@ RSpec.describe User, type: :model do
   # Validation tests
   # ensure attributes are present before save
   it { should validate_presence_of(:username) }
-  it { should validate_presence_of(:last_name) }
+  it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password) }
-  it { should validate_presence_of(:password) }
+  it { should validate_presence_of(:password_confirmation) }
   it { should validate_presence_of(:phone_number) }
 end
